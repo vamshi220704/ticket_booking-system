@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TicketVerse — Book Your Experience</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="home-page">
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">🎟</span>
+    <span class="brand-name">TicketVerse</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#movies">Movies</a></li>
+    <li><a href="#sports">Sports</a></li>
+    <li><a href="#concerts">Concerts</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions">
+    <a href="login.html" class="btn-outline">Login</a>
+    <a href="register.html" class="btn-primary">Register</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+    <div class="ticker-tape">
+      <span>🎬 MOVIES &nbsp;•&nbsp; 🎵 CONCERTS &nbsp;•&nbsp; ⚽ SPORTS &nbsp;•&nbsp; 🎭 THEATRE &nbsp;•&nbsp; 🎪 EVENTS &nbsp;•&nbsp; 🏟 STADIUM &nbsp;•&nbsp; 🎬 MOVIES &nbsp;•&nbsp; 🎵 CONCERTS &nbsp;•&nbsp; ⚽ SPORTS &nbsp;•&nbsp; 🎭 THEATRE &nbsp;•&nbsp; 🎪 EVENTS &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ India's Premier Ticketing Platform</div>
+    <h1 class="hero-title">
+      Book Your <br/>
+      <em>Next Experience</em>
+    </h1>
+    <p class="hero-sub">Movies · Concerts · Sports · Theatre · Events — all in one place</p>
+    <div class="hero-search">
+      <div class="search-box">
+        <i class="fa fa-search"></i>
+        <input type="text" placeholder="Search movies, events, artists, venues..." id="heroSearch"/>
+        <button onclick="heroSearchAction()">Search</button>
+      </div>
+      <div class="quick-tags">
+        <span class="tag" onclick="filterEvents('movies')">🎬 Movies</span>
+        <span class="tag" onclick="filterEvents('concerts')">🎵 Concerts</span>
+        <span class="tag" onclick="filterEvents('sports')">⚽ Sports</span>
+        <span class="tag" onclick="filterEvents('theatre')">🎭 Theatre</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">2M+</span><span class="stat-label">Tickets Sold</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Events Monthly</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Cities</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">User Rating</span></div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="events">
+  <div class="section-header">
+    <h2>Browse by Category</h2>
+    <p>Find the perfect experience for every occasion</p>
+  </div>
+  <div class="category-grid">
+    <div class="cat-card cat-movies" onclick="filterEvents('movies')">
+      <div class="cat-icon">🎬</div>
+      <h3>Movies</h3>
+      <span>120+ Now Showing</span>
+    </div>
+    <div class="cat-card cat-concerts" onclick="filterEvents('concerts')">
+      <div class="cat-icon">🎵</div>
+      <h3>Concerts</h3>
+      <span>45 Upcoming Shows</span>
+    </div>
+    <div class="cat-card cat-sports" onclick="filterEvents('sports')">
+      <div class="cat-icon">⚽</div>
+      <h3>Sports</h3>
+      <span>30 Live Matches</span>
+    </div>
+    <div class="cat-card cat-theatre" onclick="filterEvents('theatre')">
+      <div class="cat-icon">🎭</div>
+      <h3>Theatre</h3>
+      <span>60 Performances</span>
+    </div>
+    <div class="cat-card cat-comedy" onclick="filterEvents('comedy')">
+      <div class="cat-icon">😂</div>
+      <h3>Comedy</h3>
+      <span>25 Stand-up Shows</span>
+    </div>
+    <div class="cat-card cat-kids" onclick="filterEvents('kids')">
+      <div class="cat-icon">🎪</div>
+      <h3>Kids & Family</h3>
+      <span>35 Fun Events</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED EVENTS -->
+<section class="featured-section" id="movies">
+  <div class="section-header">
+    <h2>Featured Events</h2>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterEvents('all', this)">All</button>
+      <button class="filter-btn" onclick="filterEvents('movies', this)">Movies</button>
+      <button class="filter-btn" onclick="filterEvents('concerts', this)">Concerts</button>
+      <button class="filter-btn" onclick="filterEvents('sports', this)">Sports</button>
+      <button class="filter-btn" onclick="filterEvents('theatre', this)">Theatre</button>
+    </div>
+  </div>
+
+  <div class="events-grid" id="eventsGrid">
+    <!-- Cards injected by JS -->
+  </div>
+</section>
+
+<!-- TRENDING -->
+<section class="trending-section">
+  <div class="section-header">
+    <h2>🔥 Trending This Week</h2>
+  </div>
+  <div class="trending-list" id="trendingList"></div>
+</section>
+
+<!-- CITIES -->
+<section class="cities-section">
+  <div class="section-header">
+    <h2>Top Cities</h2>
+    <p>Events happening near you</p>
+  </div>
+  <div class="cities-grid">
+    <div class="city-pill" onclick="alert('Showing events in Hyderabad')">🏙 Hyderabad</div>
+    <div class="city-pill" onclick="alert('Showing events in Mumbai')">🌆 Mumbai</div>
+    <div class="city-pill" onclick="alert('Showing events in Delhi')">🕌 Delhi</div>
+    <div class="city-pill" onclick="alert('Showing events in Bangalore')">🌿 Bangalore</div>
+    <div class="city-pill" onclick="alert('Showing events in Chennai')">🏖 Chennai</div>
+    <div class="city-pill" onclick="alert('Showing events in Kolkata')">🎨 Kolkata</div>
+    <div class="city-pill" onclick="alert('Showing events in Pune')">🎓 Pune</div>
+    <div class="city-pill" onclick="alert('Showing events in Ahmedabad')">🌺 Ahmedabad</div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section">
+  <div class="section-header">
+    <h2>Why TicketVerse?</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Instant Booking</h3>
+      <p>Book in seconds. Confirmation delivered to your email & phone instantly.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🔒</div>
+      <h3>100% Secure</h3>
+      <p>Bank-grade encryption. Your payments & data are completely protected.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💸</div>
+      <h3>Best Price Guarantee</h3>
+      <p>We match or beat any price. No hidden charges or surprise fees.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎫</div>
+      <h3>E-Tickets</h3>
+      <p>Go paperless. Show your ticket from your phone at the venue gate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="brand-icon">🎟</span>
+      <span class="brand-name">TicketVerse</span>
+      <p>India's most loved ticketing platform. Bringing unforgettable experiences to millions.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#">Movies</a>
+        <a href="#">Concerts</a>
+        <a href="#">Sports</a>
+        <a href="#">Theatre</a>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <a href="#">FAQs</a>
+        <a href="#">Cancellations</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 TicketVerse. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — TicketVerse</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="dashboard-page">
+
+<nav class="navbar">
+  <div class="nav-brand">
+    <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:8px">
+      <span class="brand-icon">🎟</span>
+      <span class="brand-name">TicketVerse</span>
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#mytickets">My Tickets</a></li>
+    <li><a href="#wishlist">Wishlist</a></li>
+  </ul>
+  <div class="nav-actions">
+    <div class="user-menu">
+      <div class="user-avatar" id="userAvatar">R</div>
+      <div class="user-dropdown" id="userDropdown">
+        <div class="dropdown-header">
+          <div class="user-avatar-lg" id="userAvatarLg">R</div>
+          <div>
+            <div class="dropdown-name" id="dropdownName">Rahul</div>
+            <div class="dropdown-email" id="dropdownEmail">rahul@email.com</div>
+          </div>
+        </div>
+        <a href="#profile" class="dropdown-item"><i class="fa fa-user"></i> Profile</a>
+        <a href="#mytickets" class="dropdown-item"><i class="fa fa-ticket"></i> My Tickets</a>
+        <a href="#settings" class="dropdown-item"><i class="fa fa-cog"></i> Settings</a>
+        <div class="dropdown-divider"></div>
+        <a href="#" class="dropdown-item logout-item" onclick="logout()"><i class="fa fa-sign-out-alt"></i> Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="dashboard-hero">
+  <div class="dashboard-welcome">
+    <h1>Hello, <span id="welcomeName">Rahul</span> 👋</h1>
+    <p>Ready to book your next experience?</p>
+  </div>
+  <div class="dashboard-stats-bar">
+    <div class="dash-stat"><span class="dash-num" id="totalBookings">0</span><span class="dash-lbl">Bookings</span></div>
+    <div class="dash-stat"><span class="dash-num">₹0</span><span class="dash-lbl">Saved</span></div>
+    <div class="dash-stat"><span class="dash-num">0</span><span class="dash-lbl">Wishlist</span></div>
+  </div>
+</section>
+
+<section class="dashboard-body">
+  <div class="dash-section" id="mytickets">
+    <h2>🎫 My Tickets</h2>
+    <div class="my-tickets-list" id="myTicketsList">
+      <div class="empty-state">
+        <div class="empty-icon">🎟</div>
+        <h3>No tickets yet!</h3>
+        <p>Head to the homepage and book your first experience.</p>
+        <a href="index.html" class="btn-primary">Browse Events</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dash-section">
+    <h2>🔥 Recommended For You</h2>
+    <div class="rec-grid" id="recGrid"></div>
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
